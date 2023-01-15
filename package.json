@@ -1,0 +1,25 @@
+{
+  "name": "alexa_zabbix_lambda",
+  "version": "1.0.0",
+  "description": "alexa zabbix integration",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OferElfassi/alexa_zabbix_lambda.git"
+  },
+  "keywords": [
+    "zabbix",
+    "alexa",
+    "aws",
+    "lambda"
+  ],
+  "author": "alexa-zabbix-team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OferElfassi/alexa_zabbix_lambda/issues"
+  },
+  "homepage": "https://github.com/OferElfassi/alexa_zabbix_lambda#readme"
+}
