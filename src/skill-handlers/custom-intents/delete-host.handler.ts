@@ -6,7 +6,7 @@ export const DeleteHostHandler : RequestHandler = {
         const request = handlerInput.requestEnvelope.request;
         return request.type === 'IntentRequest' && request.intent.name === 'DeleteHostIntent';
     },
-    handle(handlerInput : HandlerInput) : Response {
+    async handle (handlerInput : HandlerInput){
         const speechText = 'Goodbye!';
         return handlerInput.responseBuilder.speak(speechText).withSimpleCard('Goodbye!', speechText).withShouldEndSession(true).getResponse();
     }

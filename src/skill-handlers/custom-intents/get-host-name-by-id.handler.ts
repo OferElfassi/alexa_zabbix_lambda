@@ -5,7 +5,7 @@ export const GetHostNameByIdHandler : RequestHandler = {
     canHandle(handlerInput : HandlerInput) : boolean {
 
     },
-    handle(handlerInput : HandlerInput) : Response {
+    async handle (handlerInput : HandlerInput) {
 
     },
 };

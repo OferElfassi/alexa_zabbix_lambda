@@ -6,8 +6,18 @@ export const CloseProblemHandler : RequestHandler = {
         const request = handlerInput.requestEnvelope.request;
         return request.type === 'IntentRequest' && request.intent.name === 'CloseProblemIntent';
     },
-    handle(handlerInput : HandlerInput) : Response {
+    async handle  (handlerInput : HandlerInput){
         const speechText = 'Goodbye!';
-        return handlerInput.responseBuilder.speak(speechText).withSimpleCard('Goodbye!', speechText).withShouldEndSession(true).getResponse();
+        const problemId = handlerInput.requestEnvelope.request.intent.slots.problemId.value;
+        const zabbixRes = await ZabbixApi.CloseProblemRequest(problemId);
+        if(zabbixRes.success){
+            return handlerInput.responseBuilder.speak(`Problem ${problemId} closed`).withSimpleCard('Goodbye!', speechText).withShouldEndSession(true).getResponse();
+            }
+        else{
+            return handlerInput.responseBuilder.speak(`Problem ${problemId} not closed`).withSimpleCard('Goodbye!', speechText).withShouldEndSession(true).getResponse();
+        }
+
     }
+
+
 };

@@ -6,8 +6,8 @@ export const CreateHostHandler : RequestHandler = {
         const request = handlerInput.requestEnvelope.request;
         return request.type === 'IntentRequest' && request.intent.name === 'CreateHostIntent';
     },
-    handle(handlerInput : HandlerInput) : Response {
-        const speechText = 'Goodbye!';
-        return handlerInput.responseBuilder.speak(speechText).withSimpleCard('Goodbye!', speechText).withShouldEndSession(true).getResponse();
+    async handle (handlerInput : HandlerInput) {
+        const hostName = handlerInput.requestEnvelope.request.intent.slots.hostName.value;
+        const hostId = handlerInput.requestEnvelope.request.intent.slots.hostId.value;
     }
 };

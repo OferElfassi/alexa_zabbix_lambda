@@ -6,7 +6,7 @@ export const GetHostIdByNameHandler : RequestHandler = {
 
 
     },
-    handle(handlerInput : HandlerInput) : Response {
+    async handle (handlerInput : HandlerInput)  {
 
     },
 };

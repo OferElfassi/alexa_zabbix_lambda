@@ -5,7 +5,7 @@ export const GetGroupByIdHandler : RequestHandler = {
     canHandle(handlerInput : HandlerInput) : boolean {
 
     },
-    handle(handlerInput : HandlerInput) : Response {
+    async handle (handlerInput : HandlerInput)  {
 
     },
 };
