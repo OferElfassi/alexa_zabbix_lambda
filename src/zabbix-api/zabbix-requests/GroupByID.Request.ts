@@ -1,6 +1,6 @@
 
 
-export const GetGroupByIdRequest = async (id: string) : Promise<IZabbixResponse<any>> => {
+export const GroupByIDRequest = async (id: string) : Promise<IZabbixResponse<any>> => {
     const response = await fetch('http://localhost:3000/api/zabbix/get-group-by-id', {
         method: 'POST',
         headers: {
