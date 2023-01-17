@@ -14,7 +14,7 @@
         "outDir": "lib"
     },
     "include": [
-        "src/**/*",
+      "lambda/**/*",
         "./global.d.ts",
         "./node_modules/@types"
     ],

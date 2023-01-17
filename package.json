@@ -4,7 +4,7 @@
   "description": "alexa zabbix integration",
   "main": "index.js",
   "scripts": {
-    "build": "tsc && babel ./src --out-dir ./lib --extensions .ts"
+    "build": "tsc && babel lambda --out-dir ./lib --extensions .ts"
   },
   "repository": {
     "type": "git",
@@ -50,6 +50,7 @@
   },
   "dependencies": {
     "@babel/cli": "^7.20.7",
-    "ask-sdk": "^2.12.1"
+    "ask-sdk": "^2.12.1",
+    "node-fetch": "^3.3.0"
   }
 }

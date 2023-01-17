@@ -1,0 +1,409 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "zabbix server",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [],
+          "samples": [
+            "hello",
+            "how are you",
+            "say hi world",
+            "say hi",
+            "hi",
+            "say hello world",
+            "say hello"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "ApiTest",
+          "slots": [
+            {
+              "name": "coin",
+              "type": "AMAZON.FirstName",
+              "samples": [
+                "{coin}"
+              ]
+            }
+          ],
+          "samples": [
+            "give me a test value",
+            "alexa ask zabbix server to give me a test value"
+          ]
+        },
+        {
+          "name": "CreateHostIntent",
+          "slots": [
+            {
+              "name": "hostname",
+              "type": "AMAZON.Person",
+              "samples": [
+                "The name of the host is {hostname}",
+                "The hostname is {hostname}",
+                "The host name is {hostname}",
+                "{hostname}"
+              ]
+            },
+            {
+              "name": "ipnum",
+              "type": "AMAZON.NUMBER",
+              "samples": [
+                "{ipnum}"
+              ]
+            },
+            {
+              "name": "groupid",
+              "type": "AMAZON.NUMBER"
+            }
+          ],
+          "samples": [
+            "create host {hostname} at group {groupid} with ip adress {ipnum}",
+            "create host at group {groupid} with ip adress {ipnum}  ",
+            "create host named {hostname}  with ip adress {ipnum} ",
+            "create host named {hostname} at group {groupid}",
+            "create host named {hostname} at group {groupid} with ip adress {ipnum}  ",
+            "create host"
+          ]
+        },
+        {
+          "name": "DeleteHostIntent",
+          "slots": [
+            {
+              "name": "listReq",
+              "type": "Boolean",
+              "samples": [
+                "{listReq}"
+              ]
+            }
+          ],
+          "samples": [
+            "delete host"
+          ]
+        },
+        {
+          "name": "actualDeleteIntent",
+          "slots": [
+            {
+              "name": "hostname",
+              "type": "AMAZON.Person",
+              "samples": [
+                "{hostname}"
+              ]
+            }
+          ],
+          "samples": []
+        },
+        {
+          "name": "listProblemIntent",
+          "slots": [],
+          "samples": [
+            "list problems",
+            "list all problems"
+          ]
+        },
+        {
+          "name": "problemHandlerIntent",
+          "slots": [
+            {
+              "name": "option",
+              "type": "problemHandlerSlot"
+            }
+          ],
+          "samples": []
+        },
+        {
+          "name": "secondProblemHandlerIntent",
+          "slots": [
+            {
+              "name": "option",
+              "type": "problemHandlerSlot",
+              "samples": [
+                "{option}"
+              ]
+            }
+          ],
+          "samples": []
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "No"
+              }
+            },
+            {
+              "name": {
+                "value": "Yes"
+              }
+            }
+          ],
+          "name": "Boolean"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "Stop"
+              }
+            },
+            {
+              "name": {
+                "value": "No"
+              }
+            },
+            {
+              "name": {
+                "value": "Yes"
+              }
+            }
+          ],
+          "name": "problemHandlerSlot"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "ApiTest",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "coin",
+              "type": "AMAZON.FirstName",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.103361972601.576166550146"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CreateHostIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "hostname",
+              "type": "AMAZON.Person",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1105926174781.1028680235656"
+              }
+            },
+            {
+              "name": "ipnum",
+              "type": "AMAZON.NUMBER",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1105926174781.1468762892401"
+              }
+            },
+            {
+              "name": "groupid",
+              "type": "AMAZON.NUMBER",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.383519662043.1590324577652"
+              }
+            }
+          ]
+        },
+        {
+          "name": "deleteHostIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "listReq",
+              "type": "Boolean",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1137838088488.914347930776"
+              }
+            }
+          ]
+        },
+        {
+          "name": "actualDeleteIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "hostname",
+              "type": "AMAZON.Person",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.385333316367.1610880790176"
+              }
+            }
+          ]
+        },
+        {
+          "name": "problemHandlerIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "option",
+              "type": "problemHandlerSlot",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.625318384828.335337127314"
+              }
+            }
+          ]
+        },
+        {
+          "name": "secondProblemHandlerIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "option",
+              "type": "problemHandlerSlot",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.996352805185.850713637531"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.103361972601.576166550146",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "what is the name of the coin?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1105926174781.1028680235656",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What is the hostname?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1105926174781.1468762892401",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What is the ip address?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1105926174781.1663267890141",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What is the ip address?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1105926174781.418088275045",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What is the ip address?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1105926174781.982711326577",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What is the ip address?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.383519662043.1590324577652",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What is the group id?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1137838088488.914347930776",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Do you want a list of all the hosts?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.385333316367.1610880790176",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Great second intent, give me host"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.625318384828.335337127314",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Do you want to close this problem?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.996352805185.850713637531",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Do you want to close this problem?"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "34"
+}
