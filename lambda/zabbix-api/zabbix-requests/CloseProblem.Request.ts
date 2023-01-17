@@ -1,7 +1,18 @@
+import {Request} from "./Request";
 
 
 export const CloseProblemRequest = async (problemId:string): Promise<IZabbixResponse<any>> => {
-    const auth = await getAuth();
+
+    try {
+        const params = {eventids:problemId, action:1, message:"Problem resolved."}
+        const data = await Request('event.acknowledge',params, 'Group does not exist.','An error occurred, please try again.');
+        return {success:true,message:"Success",data: {group:data.result[0].name}};
+    } catch (err) {
+        return {success:false,message:err.message,data:null};
+    }
+
+
+
     const body={
         "jsonrpc": "2.0",
         "method": "event.acknowledge",
